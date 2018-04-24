@@ -12,7 +12,7 @@ node('linux') {
     }
     stage ("DelectInstance") {
          sh "aws ec2 wait instance-exists --region us-east-1"
-         def output = sh returnStdout: true, script: 'aws ec2 describe-instances --InstanceId --region us-east-1 | jq .'
+         def output = sh returnStdout: true, script: 'aws ec2 describe-instances --filters instance-id --region us-east-1 | jq .'
          sh "aws ec2 terminate-instances --instance-ids output --region us-east-1"
     }
 }
