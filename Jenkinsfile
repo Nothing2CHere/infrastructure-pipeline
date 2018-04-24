@@ -8,7 +8,7 @@ node('linux') {
         sh "aws ec2 describe-instances --region us-east-1"
     }
     stage ("CreateInstance") {
-         sh "aws ec2 run-instances --image-id ami-287dnf7 --count 1 --instance-type t2.micro --key-name seis665 --security-group-ids sg-7edf3108 --subnet-id subnet-0bbd366e --region us-east-1"
+         sh "aws ec2 run-instances --image-id ami-6735fd1a --count 1 --instance-type t2.micro --key-name Dan665-1 --security-group-ids sg-6d8cf424 --subnet-id subnet-6f56b333 --region us-east-1"
     }
 }
 
