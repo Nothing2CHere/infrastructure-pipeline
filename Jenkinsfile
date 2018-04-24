@@ -11,7 +11,7 @@ node('linux') {
          sh "aws ec2 run-instances --image-id ami-6735fd1a --count 1 --instance-type t2.micro --key-name Dan665-1 --security-group-ids sg-6d8cf424 --subnet-id subnet-6f56b333 --region us-east-1"
     }
     stage ("DelectInstance") {
-         sh "aws ec2 wait --instance-exists"
+         sh "aws ec2 wait instance-exists"
          def output = sh returnStdout: true, script: 'aws ec2 describe-instances | jq .'
     }
 }
